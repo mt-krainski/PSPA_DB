@@ -1,0 +1,110 @@
+* {
+ font-family: Arial;
+ box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+header {
+    background-color: #1A237E;
+    padding: 50px;
+    text-align: left;
+    font-size: 35px;
+    color: #C5CAE9;
+}
+
+nav {
+    float: right;
+    width: 20%;
+    min-height: 300px; /* only for demonstration, should be removed */
+    padding: 20px;
+    text-align: center;
+    color: #9E9E9E;
+}
+
+/* Style the list inside the menu */
+nav ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+nav a{
+    text-decoration: none;
+}
+
+/* unvisited link */
+nav a:link {
+    color: #BDBDBD;
+}
+
+/* visited link */
+nav a:visited {
+    color: #BDBDBD;
+}
+
+/* mouse over link */
+nav a:hover {
+    color: #616161;
+}
+
+/* selected link */
+nav a:active {
+    color: #616161;
+}
+
+article {
+    float: left;
+    padding: 20px;
+    width: 80%;
+    min-height: 300px; /* only for demonstration, should be removed */
+    color: #616161;
+}
+
+/* Clear floats after the columns */
+section:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+/* Style the footer */
+footer {
+    background-color: #9FA8DA;
+    padding: 10px;
+    text-align: center;
+    color: #E8EAF6;
+}
+
+footer a{
+    text-decoration: none;
+}
+
+/* unvisited link */
+footer a:link {
+    color: #E8EAF6;
+}
+
+/* visited link */
+footer a:visited {
+    color: #E8EAF6;
+}
+
+/* mouse over link */
+footer a:hover {
+    color: white;
+}
+
+/* selected link */
+footer a:active {
+    color: white;
+}
+
+/* Responsive layout - makes the two columns/boxes stack on top of each other instead of next to each other, on small screens */
+@media (max-width: 600px) {
+    nav, article {
+        width: 100%;
+        height: auto;
+    }
+}

@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+
+
+{% load static %}
+
+
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css" href="{% static 'display/main.css' %}">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <title> {{ member.name }} </title>
+</head>
+<body>
+
+<header> {{ member.name }} </header>
+
+
+<section>
+    <nav>
+        {% for expertise in member.area_of_expertise.all %}
+        <ul> <a href=""> {{ expertise.name }} </a> </ul>
+        {% endfor %}
+
+    </nav>
+    <article>
+
+        <h1> {{ member.name }} {{ member.last_name }} </h1>
+
+        Experience
+        <br><br>
+
+        <table id="experience" style="width:80%">
+
+        </table>
+
+
+
+    </article>
+</section>
+
+<footer>
+
+    Developed with ♥ by <a href="https://github.com/mt-krainski">Mateusz</a>
+
+</footer>
+
+<script>
+    table = document.getElementById("experience");
+
+    console.log(table)
+
+    {% for experience in member.jobdescription_set.all %}
+        row = table.insertRow();
+        row.insertCell().innerHTML = "{{ experience.country_str }}"
+        row.insertCell().innerHTML = "{{ experience.workplace_str }}"
+        row.insertCell().innerHTML = "{{ experience.name_str }}"
+        row.insertCell().innerHTML = "{{ experience.start_date_str }}"
+        row.insertCell().innerHTML = "{{ experience.end_date_str }}"
+        row.insertCell().innerHTML = "{{ experience.area_of_expertise_str_short }}"
+
+    {% endfor %}
+
+
+
+</script>
+
+</body>
+</html>

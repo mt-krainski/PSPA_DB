@@ -7,6 +7,7 @@ from django.shortcuts import render
 from django.shortcuts import get_object_or_404
 
 from .models import Question
+from .models import Member
 
 
 def index(request):
@@ -47,3 +48,12 @@ def results(request, question_id):
 def vote(request, question_id):
     return HttpResponse(f"You're voting for question {question_id}")
 
+
+def display_member(request, member_id):
+    member = Member.objects.get(pk=member_id)
+
+    return render(
+        request,
+        'display/member_display.html',
+        {'member':member}
+    )
