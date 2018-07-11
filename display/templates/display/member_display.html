@@ -47,18 +47,17 @@
 </footer>
 
 <script>
-    table = document.getElementById("experience");
+    var table = document.getElementById("experience");
 
-    console.log(table)
-
+    var i = 0;
     {% for experience in member.jobdescription_set.all %}
-        row = table.insertRow();
-        row.insertCell().innerHTML = "{{ experience.country_str }}"
-        row.insertCell().innerHTML = "{{ experience.workplace_str }}"
-        row.insertCell().innerHTML = "{{ experience.name_str }}"
-        row.insertCell().innerHTML = "{{ experience.start_date_str }}"
-        row.insertCell().innerHTML = "{{ experience.end_date_str }}"
-        row.insertCell().innerHTML = "{{ experience.area_of_expertise_str_short }}"
+        var row = table.insertRow(i++);
+        var cell_id = 0
+        row.insertCell(cell_id++).innerHTML = "{{ experience.country_str }}";
+        row.insertCell(cell_id++).innerHTML = "{{ experience.workplace_str }}";
+        row.insertCell(cell_id++).innerHTML = "{{ experience.name_str }}";
+        row.insertCell(cell_id++).innerHTML = "{{ experience.start_date_str }} - {{ experience.end_date_str }}";
+        row.insertCell(cell_id++).innerHTML = "{{ experience.area_of_expertise_str_short }}";
 
     {% endfor %}
 

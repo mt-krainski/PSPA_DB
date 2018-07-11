@@ -16,7 +16,10 @@ urlpatterns = [
     # /display/4/vote/
     path("<int:question_id>/vote/", views.vote, name="vote"),
 
-    # /display/person/1
+    # /display/member/1
     path("member/<int:member_id>", views.display_member, name="vote"),
+
+    # /display/members
+    path("members", views.display_members_list, name="vote"),
 ]
 

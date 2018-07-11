@@ -57,3 +57,18 @@ def display_member(request, member_id):
         'display/member_display.html',
         {'member':member}
     )
+
+
+def display_members_list(request):
+
+    members = Member.objects.all()
+    jobs = [member.jobdescription_set.all()[0].workplace_str for member in members]
+
+    return render(
+        request,
+        'display/list_members.html',
+        {
+            'members': members,
+            'jobs': jobs
+        }
+    )

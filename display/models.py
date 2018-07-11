@@ -60,7 +60,6 @@ class AreaOfExpertise(models.Model):
     subarea_of = models.ManyToManyField(
         "self",
         symmetrical=False,
-        null=True,
         blank=True
     )
     description = models.TextField(
@@ -167,8 +166,6 @@ class JobDescription(models.Model):
 
     def name_str(self):
         return f"{self.name}"
-
-
 
 
 class JobOffer(models.Model):

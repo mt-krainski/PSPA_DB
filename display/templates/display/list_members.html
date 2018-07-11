@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+
+{% load static %}
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css" href="{% static 'display/main.css' %}">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <title>Members</title>
+</head>
+<body>
+
+<header> PSPA Members </header>
+
+<section>
+
+    <article>
+
+        <table id="members_table" style="width:80%"></table>
+
+    </article>
+
+</section>
+
+<footer>
+
+    Developed with ♥ by <a href="https://github.com/mt-krainski">Mateusz</a>
+
+</footer>
+
+<script>
+    var table = document.getElementById("members_table");
+
+    var header = table.createTHead();
+    var row = header.insertRow(0);
+    row.insertCell(0).outerHTML = "<th> Name </th>"
+    row.insertCell(1).outerHTML = "<th> Company </th>"
+    row.insertCell(2).outerHTML = "<th> Email </th>"
+
+    var row_id = 1;
+    {% for member in members %}
+        row = table.insertRow(row_id++);
+        row.insertCell(0).innerHTML = '<a href="./member/{{ member.pk }}">{{ member }}</a>'
+    {%  endfor %}
+
+    row_id = 1;
+    {% for job in jobs %}
+        row = table.rows[row_id++];
+        row.insertCell(1).innerHTML = "{{ job }}"
+    {% endfor %}
+
+    row_id = 1;
+    {% for member in members %}
+        row = table.rows[row_id++];
+        row.insertCell(2).innerHTML = "{{ member.work_email }}"
+    {% endfor %}
+
+
+</script>
+
+
+</body>
+</html>
